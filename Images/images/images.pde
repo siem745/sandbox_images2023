@@ -49,6 +49,6 @@ void keyPressed() {
 } else {
   nightmode = true;
 }
-//End mousePressed
-void mousePressed() }
+void mousePressed(); {
+}
 //End mousePresed
