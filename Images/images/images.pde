@@ -32,17 +32,20 @@ void draw(){
   //background(255); //built in Bug, 1 pixel
   rect( backgroundimageX,backgroundimageY, backgroundimageWidth, backgroundimageHeight);
   //
-  if( brightnessControl==true, see keyPressed]  )tint(255, brightnessNumber); //GrayScale: 1/2 tint(i.e 128/256=1/2)
+  if( brightnessControl==true) tint(255, brightnessNumber); //GrayScale: 1/2 tint(i.e 128/256=1/2)
  // if( nightmode==true )tint(64, 64, 40); //GrayScale: 1/2 tint(i.e 128/256=1/2)
   if (nightmode==true) {
     tint (64, 64, 40);
   } else {
     noTint();//See Processing DOC
+    println(nightmode);
   }
 image( picBackground, backgroundimageX,backgroundimageY, backgroundimageWidth, backgroundimageHeight);
 } //End draw
 //
 void keyPressed() {
+  //Brightness
+  //
    if (key=='n'|| key=='N' ) { //Nightmode, basic control is boolean
  if (nightmode==true ) { 
   nightmode = false;
@@ -52,8 +55,10 @@ void keyPressed() {
    }
    //Brightness: ARROWS activate brightnessControl, never off
    //NOTE: NIGHTMODE does turn off
-   if () {//Brightness keybind
+   if (key==CODED&& keyCode=UP || keycode==DOWN ) {//Brightness keybind
    brightnessControl = true;
+   if ((key==CODED&& keyCode=UP) brightnessNumber ++ ; //brightness +=1  //brightness
+   if ((key==CODED&& keyCode=DOWN);
    }
   //
 } //End keyPressed
@@ -62,4 +67,3 @@ void mousePressed() {
 } //End mousePressed
 //
 // End MAIN Program
-//End mousePresed
