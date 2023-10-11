@@ -57,8 +57,8 @@ void keyPressed() {
    //NOTE: NIGHTMODE does turn off
    if (key==CODED&& keyCode=UP || keycode==DOWN ) {//Brightness keybind
    brightnessControl = true;
-   if ((key==CODED&& keyCode=UP) brightnessNumber ++ ; //brightness +=1  //brightness
-   if ((key==CODED&& keyCode=DOWN);
+   if (key==CODED&& keyCode=UP) brightnessNumber ++ ; //brightness +=1  //brightness
+   if (key==CODED&& keyCode=DOWN);
    }
   //
 } //End keyPressed
