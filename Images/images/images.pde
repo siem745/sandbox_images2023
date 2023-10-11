@@ -1,10 +1,10 @@
 //Global variables
 int appWidth, appHeight;
 float backgroundimageX,backgroundimageY, backgroundimageWidth, backgroundimageHeight;
-PImage picBackground;
-Boolean nightmode=false; //Note:clock and turn on 
+PImage picBackground, bickeForeground, darthVaderPortrait;
+Boolean nightmode=false; //Note: clock will automatically turn on 
 Boolean brightnessControl=false; //Note: ARROWS
-int brightnessNumber=255; //Range:1-255
+int brightnessNumber=128; //Range:1-255
 //
 void setup() {
 //fullscreen(); //displayWidth, displayHeight
@@ -14,18 +14,33 @@ appWidth = width;
 appHeight = height;
 //
 //population
+ int hourNightMode = hour(); //24-hour clock
+  println(hourNightMode);
+  if ( hourNightMode>17 ) {
+    nightmode=true;
+  } else if ( hourNightMode<05 ) {
+    nightmode=true;
+  } else {
+    nightmode=false;
+  }
 backgroundimageX = appWidth*0;
 backgroundimageY = appHeight*0;
 backgroundimageWidth =appWidth -1;
 backgroundimageHeight = appHeight-1;
-picBackground = loadImage("..imagesused/New Folder/pngtree-halloween-wallpapers-and-backgrounds-for-laptop-or-desktop-picture-image_3712599.jpg");
-//
-//DIVs
-//
-rect( backgroundimageX,backgroundimageY, backgroundimageWidth, backgroundimageHeight);
-//tint(255, 128); //GrayScale: 1/2 tint(i.e 128/256=1/2)
-  tint(255, 255, 0); //GrayScale: 1/2 tint(i.e 128/256=1/2)
-//
+ //Concatenation of Pathways
+  String up = "..";
+  String open = "/";
+  String imagesPath = up + open;
+  String landScapeImage = "imagesUsed/Landscape & Square Images/";
+  picBackground = loadImage( imagesPath + landScapeImage + "Obi-wan-star-wars-jedi-23864621-800-600.jpg");
+  bikeForeground = loadImage();
+  darthVaderPortrait = loadImage();
+  //
+  //DIVs
+  //rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect(); //bike image
+  rect(); //Darth Image
+  //
 } //End setup
 //
 void draw(){
@@ -38,15 +53,15 @@ void draw(){
     tint (64, 64, 40);
   } else {
     noTint();//See Processing DOC
-    println(nightmode);
+   // println(nightmode);
   }
 image( picBackground, backgroundimageX,backgroundimageY, backgroundimageWidth, backgroundimageHeight);
+ image( bikeForeground, ); //bike image, purpose: see circles in aspect ratio
+  image( darthVaderPortrait, ); //Darth Vader in Portrait, geometry is landscape, thus centered
 } //End draw
 //
 void keyPressed() {
-  //Brightness
-  //
-   if (key=='n'|| key=='N' ) { //Nightmode, basic control is boolean
+if (key=='n'|| key=='N' ) { //Nightmode, basic control is boolean
  if (nightmode==true ) { 
   nightmode = false;
 } else {
@@ -61,6 +76,7 @@ void keyPressed() {
    if (key==CODED&& keyCode=DOWN);
    }
   //
+println(brightnessNumber);
 } //End keyPressed
 //
 void mousePressed() {
